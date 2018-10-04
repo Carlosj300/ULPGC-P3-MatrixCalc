@@ -35,5 +35,21 @@ package body Matriz is
       -- Devolucion de datos
       return result;
    end restar;
+   
+   procedure traspuesta (m : in out Matriz) is
+      -- Variables
+      aux : Float;
+      
+   begin
+      -- Bucle para intercambiar filas y columnas
+      for y in 1 .. m.f loop
+         for x in 1 .. m.c loop
+            aux := m.mat(y,x);
+            m.mat(y,x) := m.mat(x,y);
+            m.mat(x,y) := aux;
+         end loop;
+      end loop;
+      
+   end traspuesta;
 
 end Matriz;
