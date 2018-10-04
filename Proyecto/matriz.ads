@@ -26,6 +26,9 @@ package Matriz is
    -- Funcion para crear matriz unidad
    function matUnidad (n : Natural) return Matriz;
    
+   -- Funcion que comparar si dos matrices son iguales
+   function equals (m1 : Matriz; m2 : Matriz) return Boolean;
+   
 private
 
    -- Definicion del objeto Matriz
