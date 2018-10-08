@@ -51,5 +51,26 @@ package body Matriz is
       end loop;
       
    end traspuesta;
+   
+   function equals (m1 : Matriz; m2 : Matriz) return Boolean is
+   begin
+      
+      -- Comparamos si ambas matrices coinciden en dimensines
+      if m1.f /= m2.f or m1.c /= m2.c then
+         return False;
+      end if;
+      
+      -- Ambas matrices tienen misma dimension pasamos a comparar sus valores
+      for y in m1.mat'Range(1) loop
+         for x in m1.mat'Range(2) loop
+            if m1.mat(y,x) /= m2.mat(y,x) then
+               return False;
+            end if;
+         end loop;
+      end loop;
+      
+      -- Devolucion por defecto
+      return True;
+   end equals;
 
 end Matriz;
