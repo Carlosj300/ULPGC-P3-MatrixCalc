@@ -8,7 +8,7 @@ package Matriz is
       mat : Vector (0 .. F, 0 .. C);
    end record;
    
-   function init (f : Positive; c : Positive; values : in Float) return Matrix;
+   procedure init (m : in Matrix; values : arrayFloat);
    -- Funcion para inicializar una matriz
    
    function sumar (m1 : Matrix; m2 : Matrix) return Matrix;
