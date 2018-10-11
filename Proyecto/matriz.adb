@@ -42,8 +42,8 @@ package body Matriz is
       
    begin
       -- Bucle para intercambiar filas y columnas
-      for y in 1 .. m.f loop
-         for x in 1 .. m.c loop
+      for y in m1.mat'Range(1) loop
+         for x m2.mat'Range(2) loop
             aux := m.mat(y,x);
             m.mat(y,x) := m.mat(x,y);
             m.mat(x,y) := aux;
