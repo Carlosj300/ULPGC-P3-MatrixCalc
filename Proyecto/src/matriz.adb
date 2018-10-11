@@ -1,10 +1,24 @@
 package body Matriz is
 
    function init (f : Positive; c : Positive; values : in Float) return Matrix is
+      
       -- Variables
       result : Matrix (f,c);
+      desp : Integer := values'First;
+      
    begin
-      -- Implementar
+
+      -- Recorremos la matrix y anadimos valores
+      for y in result.mat'Range(1) loop
+         for x in result.mat'Range(2) loop
+            -- Guardamos valor y actualizamos desp
+            result.mat(y,x) := values(desp);
+            desp := desp + 1;
+         end loop;
+      end loop;
+      
+      -- DEvolucion de la matriz inicializada
+      return result;
    end init;
    
    function sumar (m1 : Matrix; m2 : Matrix) return Matrix is
