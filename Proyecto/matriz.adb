@@ -73,6 +73,45 @@ package body Matriz is
       return True;
    end equals;
 
---Probando
---Probando
+
+   function multCons (m1 : Matriz; n : Integer) return Matriz is
+      
+      -- Variables
+      result : Matriz (m1.f, m1.c);
+      
+   begin
+      
+      -- Bucle para recorrer la matriz a multiplicar
+      for y in m1.mat'Range(1) loop
+         for x in m1.mat'Range(2) loop
+            result(y,x) := m1(y,x) * n;
+         end loop;
+      end loop;
+      
+      --Devolucion del resultado
+      return result;
+   end multiplicacion_const;
+   
+   function matUnidad (n : Integer) return Matriz is
+      
+      -- Variables
+      result : Matriz (0 .. n, 0 .. n);
+    
+   begin
+      
+      --Bucle para inicializar la matriz
+      for y in result.mat'Range(1) loop
+         for x in result.mat'Range(2) loop
+            if y = x then
+               result(y,x) := 1;
+            else
+               result(y,x) := 0;
+            end if;
+         end loop;
+      end loop;
+         
+      --Devolucion del resultado
+      return result;
+   end unitaria;
+   
 end Matriz;
