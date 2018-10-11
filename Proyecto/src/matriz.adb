@@ -61,6 +61,7 @@ package body Matriz is
       -- Variables
       result : Matrix (m1.f, m2.c);
       almacen : Float := 0.0;
+      desp : Integer := 0;
       
    begin
       
@@ -74,8 +75,20 @@ package body Matriz is
          for x in m2.mat'Range(2) loop
             almacen := almacen + (m1.mat(y,x) * m2.mat(x,y));
          end loop;
+         
+         -- Almaceno el valor
+         result(y, aux) := almacen;
+         
+         -- Actualizo desp
+         if desp >= m1.c then
+            desp := 0;
+         else
+            desp := desp + 1;
+         end if;
       end loop;
       
+      -- Devolucion de datos
+      return result;
    end multMat;
    
    procedure traspuesta (m : in out Matrix) is
