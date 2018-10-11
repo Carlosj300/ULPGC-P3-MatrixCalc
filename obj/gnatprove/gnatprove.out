@@ -1,0 +1,25 @@
+Summary of SPARK analysis
+=========================
+
+----------------------------------------------------------------------------------------------------
+SPARK Analysis results        Total      Flow   Interval   CodePeer   Provers   Justified   Unproved
+----------------------------------------------------------------------------------------------------
+Data Dependencies                 .         .          .          .         .           .          .
+Flow Dependencies                 .         .          .          .         .           .          .
+Initialization                    .         .          .          .         .           .          .
+Non-Aliasing                      .         .          .          .         .           .          .
+Run-time Checks                   .         .          .          .         .           .          .
+Assertions                        .         .          .          .         .           .          .
+Functional Contracts              .         .          .          .         .           .          .
+LSP Verification                  .         .          .          .         .           .          .
+----------------------------------------------------------------------------------------------------
+Total                             .         .          .          .         .           .          .
+
+
+Analyzed 1 unit
+in unit matriz, 1 subprograms and packages out of 5 analyzed
+  Matriz.Matriz at matriz.ads:3 flow analyzed (0 errors, 0 checks and 0 warnings)
+  Matriz.equals at matriz.adb:55 skipped
+  Matriz.restar at matriz.ads:8 skipped
+  Matriz.sumar at matriz.ads:5 skipped
+  Matriz.traspuesta at matriz.ads:14 skipped
