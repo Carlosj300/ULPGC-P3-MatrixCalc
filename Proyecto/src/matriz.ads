@@ -2,6 +2,7 @@ package Matriz is
    
    -- Definicion de array
    type Vector is array (Natural Range <>, Natural Range <>) of Float;
+   type arrayFloat is array (Natural Range <>) of Float;
 
    -- Definicion del objeto Matrix
    type Matrix (f : Natural; c : Natural) is record
