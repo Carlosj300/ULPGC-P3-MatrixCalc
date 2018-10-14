@@ -10,9 +10,16 @@ package body Matriz with SPARK_Mode => On is
       -- Recorremos la matrix y anadimos valores
       for y in m.mat'Range(1) loop
          for x in m.mat'Range(2) loop
-            -- Guardamos valor y actualizamos desp
-            m.mat(y,x) := values(desp);
-            desp := desp + 1;
+            if desp > values'Last then
+               -- Guardamos valor y actualizamos desp
+               m.mat(y,x) := 0.0;
+            else
+               m.mat(y,x) := values(desp);
+               desp := desp + 1;
+            end if;
+
+            pragma Loop_Invariant
+              (y in 
          end loop;
       end loop;
    end init;
