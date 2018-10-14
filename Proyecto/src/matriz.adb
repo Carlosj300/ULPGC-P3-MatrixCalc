@@ -93,8 +93,8 @@ package body Matriz with SPARK_Mode => On is
       
    begin
       -- Bucle para intercambiar filas y columnas
-      for y in 0 .. m.f loop
-         for x in 0 .. m.c loop
+      for y in m.mat'Range(1) loop
+         for x in m.mat'Range(2) loop
             aux := m.mat(y,x);
             m.mat(y,x) := m.mat(x,y);
             m.mat(x,y) := aux;
