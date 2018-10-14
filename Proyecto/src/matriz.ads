@@ -21,7 +21,11 @@ package Matriz  with SPARK_Mode => On is
    function multMat (m1 : Matrix; m2 : Matrix) return Matrix;
    -- Funcion para multiplicar matrices
      
-   procedure traspuesta (m : in out Matrix);
+   procedure traspuesta (m : in out Matrix)
+   with
+       pre => m.f > 0 and m.c > 0,
+     
+       post => traspuesta'Result.c = m.f and then traspuesta'Result.f = m.c;
    -- Funcion para calcular la traspuesta
      
    function multCons (m : Matrix; value : Float) return Matrix;
