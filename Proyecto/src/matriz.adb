@@ -94,19 +94,18 @@ package body Matriz with SPARK_Mode => On is
       return result;
    end multMat;
    
-   procedure traspuesta (m : in out Matrix) is
+     function traspuesta (m : in Matrix) return Matrix is
       -- Variables
-      aux : Float;
+      m_Trans : Matrix(m.c , m.f);
       
    begin
       -- Bucle para intercambiar filas y columnas
-      for y in m.mat'Range(1) loop
-         for x in m.mat'Range(2) loop
-            aux := m.mat(y,x);
-            m.mat(y,x) := m.mat(x,y);
-            m.mat(x,y) := aux;
+      for I in m.mat'Range(1) loop
+         for J in m.mat'Range(2) loop
+            m_Trans.mat(J,I) := m.mat(I,J);
          end loop;
       end loop;
+      return m_Trans;
       
    end traspuesta;
    
