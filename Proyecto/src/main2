@@ -1,0 +1,42 @@
+with Matriz; use Matriz;
+with Assertions; use Assertions;
+with Ada.Text_IO; use Ada.Text_IO;
+
+procedure main is
+
+   procedure Test_Init is
+      -- Variables
+      a : Matrix (0, 0);
+      b : Matrix (3, 3);
+      c : Matrix (5, 2);
+      arr : arrayFloat (1 .. 9);
+      
+   begin
+
+      -- Iniciando arrays
+      arr := (2.0,4.0,6.0,1.0,3.0,5.0,0.0,8.0,9.0);
+
+      -- Probando
+      init(a, arr);
+      init(b, arr);
+      init(c, arr);
+      Put_Line(c.mat(5, 2)'Img);
+
+      Assert_True (a.f = 0 and a.c = 0, "Matriz_Vacía");
+      Assert_True (b.f = 3 and b.c = 0 and b.mat(1, 2) = 4.0, "Matriz_Cuadrada_Rango_3");
+      Assert_True (c.f = 5 and c.c = 2 and c.mat(5, 2) = 0.0, "Matriz_No_Cuadrada_5x2");
+   exception
+      when Assertion_Error =>
+         Put_Line (" Failed (assertion)");
+      when others =>
+         Put_Line (" Failed (exception)");
+
+   end Test_Init;
+
+begin
+
+   Put_Line("Test Init - Inicio");
+   Test_Init;
+   Put_Line("Test Init - Fin");
+   
+end main;
